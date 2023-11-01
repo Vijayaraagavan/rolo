@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    password: yuji
+    url: jdbc:postgresql://localhost:5432/online_order_dev
+    username: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
