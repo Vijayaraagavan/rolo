@@ -32,7 +32,7 @@ public class UserResource {
 
 	@JsonView(View.Public.class)
 	@GetMapping("/users/{id}")
-	public ResponseEntity<?> getUser(@PathVariable int id) {
+	public ResponseEntity<?> getUser(@PathVariable Long id) {
 		User user = service.getUser(id);
 		if (user != null) {
 			return ResponseEntity.ok(user);

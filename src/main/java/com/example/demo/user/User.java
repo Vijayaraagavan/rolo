@@ -2,10 +2,24 @@ package com.example.demo.user;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import com.fasterxml.jackson.annotation.JsonView;
 
+@Table(name = "my_users")
+@Entity
 public class User {
-	private int id;
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	@JsonView({View.Public.class})
 	private String name;
 	@JsonView({View.Public.class})
@@ -20,10 +34,10 @@ public class User {
 	public void setDob(Date dob) {
 		this.dob = dob;
 	}
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	@Override
@@ -42,7 +56,7 @@ public class User {
 	public void setPhoneNo(String phoneNo) {
 		this.phoneNo = phoneNo;
 	}
-	public User(int id, String name, String phoneNo, Date dob) {
+	public User(Long id, String name, String phoneNo, Date dob) {
 		super();
 		this.id = id;
 		this.name = name;
